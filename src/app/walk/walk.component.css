@@ -1,4 +1,11 @@
-.div {
+.container {
+  margin: 5%;
+}
+
+.walk-container {
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
   align-items: center;
 }

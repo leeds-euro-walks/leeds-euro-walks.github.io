@@ -1,14 +1,19 @@
-<div *ngIf="walk">
-  <h1>{{walk.elements.title.value}}</h1>
-  <img src="{{walk.elements.overview_picture.value[0].url}}" alt="Kenya coffee" width="500">
-  <p>{{walk.elements.short_description.value}}</p>
+<div class="container">
+  <a href="">< Back</a>
+  <div *ngIf="walk" class="walk-container">
+    <h1>{{walk.elements.title.value}}</h1>
+    <img src="{{walk.elements.overview_picture.value[0].url}}" alt="Kenya coffee" width="75%">
+    <br>
+    <div>
+      <p>{{walk.elements.short_description.value}}</p></div>
 
-  <div *ngFor="let location of walk.elements.locations_of_walk.linkedItems">
-    <h2>{{location.elements.order.value}}. {{location.elements.title.value}}</h2>
-    <img src="{{location.elements.picture.value[0].url}}" width="500">
-    <h3 *ngIf="location.elements.getting_to_location__guide_.value">Getting to location</h3>
-    <p>{{location.elements.getting_to_location__guide_.value}}</p>
-    <h3>Description</h3>
-    <p>{{location.elements.information_about_location.value}}</p>
+    <div *ngFor="let location of walk.elements.locations_of_walk.linkedItems">
+      <h2>{{location.elements.order.value}}. {{location.elements.title.value}}</h2>
+      <img src="{{location.elements.picture.value[0].url}}" width="75%">
+      <h3 *ngIf="location.elements.getting_to_location__guide_.value">Getting to location</h3>
+      <p>{{location.elements.getting_to_location__guide_.value}}</p>
+      <h3>Description</h3>
+      <p>{{location.elements.information_about_location.value}}</p>
+    </div>
   </div>
 </div>

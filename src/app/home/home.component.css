@@ -1,8 +1,13 @@
 .centered-items {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 img {
   margin-right: 20px;
+}
+
+h1 {
+  text-align: center;
 }
