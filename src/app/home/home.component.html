@@ -1,0 +1,10 @@
+<div *ngIf="walkItems">
+  <div *ngFor="let walk of walkItems">
+    <a href="{{walk.href}}">
+      <div class="centered-items">
+        <img src="{{walk.pictureUrl}}" width="250">
+        <span>{{walk.title}}</span>
+      </div>
+    </a>
+  </div>
+</div>
