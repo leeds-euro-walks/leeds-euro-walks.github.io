@@ -1,7 +1,50 @@
-.centered-items {
+.walk-info-items {
   display: flex;
+  flex-direction: column;
+  text-align: center;
   align-items: center;
   justify-content: space-evenly;
+  height: 100%;
+}
+
+.title-and-length {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.length-container {
+  background-color: rgb(183, 226, 140);
+  height: 48px;
+  width: 48px;
+  border-radius: 24px;
+  border: 2px solid rgb(90, 122, 57);
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.length-number {
+  font-size: large;
+  top: 3px;
+  position: relative;
+  font-weight: 1000;
+}
+
+.walk-link,
+.walk-link:link,
+.walk-link:visited,
+.walk-link:hover,
+.walk-link:active {
+  text-decoration: none;
+}
+
+.title {
+  color: black;
+  text-decoration-line: underline;
+  max-width: 75%;
 }
 
 img {
@@ -10,4 +53,42 @@ img {
 
 h1 {
   text-align: center;
+}
+
+.walks-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.walk {
+  flex-basis: 30%;
+
+  height: 30%;
+  margin: auto;
+  margin-top: 15px;
+
+  background-color: rgb(185, 218, 233);
+  border-radius: 15px;
+
+  padding: 8px;
+}
+
+.walk:hover {
+  background-color: rgb(143, 202, 229);
+  transition: 0.5s;
+}
+
+.walk-picture {
+  width: 100%;
+  margin: 10px 0 0 0;
+  max-height: 50%;
+  border-radius: 15px;
+}
+
+@media all and (max-width: 550px) {
+  .walks-container {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
 }
