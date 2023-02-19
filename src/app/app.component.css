@@ -299,6 +299,7 @@ svg#clouds {
 #banner-home-link-text {
   color: white !important;
   text-decoration: none; /* no underline */
+  font-size: 140%;
 }
 
 #banner-home-link-container {

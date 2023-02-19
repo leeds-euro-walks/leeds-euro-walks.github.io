@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import { Elements } from '@kontent-ai/delivery-sdk';
 import {Walk} from "../Models/content-types/walk";
 import { WalkSingleLocation } from '../Models/content-types/walk_single_location';
 import {fetchWalks} from "../services/WalkService";
@@ -26,9 +27,23 @@ export class WalkComponent implements OnInit {
     if (!walk) {
       throw new Error;
     }
-    walk.elements.locations_of_walk.linkedItems = walk.elements.locations_of_walk.linkedItems.sort(orderLocations)
+    let locations = walk.elements.locations_of_walk;
+    walk.elements.locations_of_walk = modifyLocationsForUI(locations);
     this.walk = walk;
   }
+}
+function modifyLocationsForUI(locations: Elements.LinkedItemsElement<WalkSingleLocation>): Elements.LinkedItemsElement<WalkSingleLocation> {
+  const reg: RegExp = new RegExp(/https:\/\/\S*/g);
+  locations.linkedItems.sort(orderLocations);
+  locations.linkedItems.map(loc => {
+    let infoText = loc.elements.information_about_location.value;
+    const matches = infoText.match(reg);
+    matches?.forEach(link => {
+      infoText = infoText.replace(link, `<a href=${link}>this link</a>`)
+    });
+    loc.elements.information_about_location.value = infoText;
+  })
+  return locations;
 }
 
 function orderLocations(location1: WalkSingleLocation, location2: WalkSingleLocation) {
