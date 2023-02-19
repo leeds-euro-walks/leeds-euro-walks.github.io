@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {getWalks} from "../services/WalkService";
+import {fetchWalks} from "../services/WalkService";
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import {getWalks} from "../services/WalkService";
 export class HomeComponent implements OnInit {
   walkItems : { title: string; pictureUrl: string; href: string; }[] | undefined;
   async ngOnInit() {
-    const walks = await getWalks();
+    const walks = await fetchWalks();
     this.walkItems = walks.map(walk => {return {
       title: walk.elements.title.value,
       pictureUrl: walk.elements.overview_picture.value[0].url,

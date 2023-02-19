@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Walk} from "../Models/content-types/walk";
-import {getWalks} from "../services/WalkService";
+import { WalkSingleLocation } from '../Models/content-types/walk_single_location';
+import {fetchWalks} from "../services/WalkService";
 
 @Component({
   selector: 'app-walk',
@@ -18,9 +19,18 @@ export class WalkComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     const walkNumberFromRoute = Number(routeParams.get('walkNumber'));
 
-    const walks = await getWalks();
+    const walks = await fetchWalks();
 
     // Find the product that correspond with the id provided in route.
-    this.walk = walks.find(walk => walk.elements.number.value === walkNumberFromRoute);
+    const walk = walks.find(walk => walk.elements.number.value === walkNumberFromRoute);
+    if (!walk) {
+      throw new Error;
+    }
+    walk.elements.locations_of_walk.linkedItems = walk.elements.locations_of_walk.linkedItems.sort(orderLocations)
+    this.walk = walk;
   }
+}
+
+function orderLocations(location1: WalkSingleLocation, location2: WalkSingleLocation) {
+  return location1.elements.order.value! < location2.elements.order.value! ? -1 : 1;
 }
