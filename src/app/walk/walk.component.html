@@ -6,8 +6,8 @@
     <div>
       <p>{{walk.elements.short_description.value}}</p></div>
 
-    <div *ngFor="let location of walk.elements.locations_of_walk.linkedItems">
-      <h2>{{location.elements.order.value}}. {{location.elements.title.value}}</h2>
+    <div *ngFor="let location of walk.elements.locations_of_walk.linkedItems;let indexOfElement=index;">
+      <h2>{{indexOfElement + 1}}. {{location.elements.title.value}}</h2>
       <img *ngIf="location.elements.picture.value" src="{{location.elements.picture.value[0].url}}" width="75%">
       <p [innerHtml]="location.elements.information_about_location.value"></p>
     </div>
