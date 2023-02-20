@@ -8,14 +8,6 @@ import { type IContentItem, type Elements } from '@kontent-ai/delivery-sdk';
  */
 export type WalkSingleLocation = IContentItem<{
   /**
-   * Getting to location (guide) (text)
-   * Required: false
-   * Id: ed99fc6b-46c9-4526-a617-456f767151a3
-   * Codename: getting_to_location__guide_
-   */
-  getting_to_location__guide_: Elements.TextElement;
-
-  /**
    * Information about location (text)
    * Required: true
    * Id: 0bc0c32b-efb3-42eb-8efd-5a5b75e79da7
@@ -49,7 +41,7 @@ export type WalkSingleLocation = IContentItem<{
 
   /**
    * Picture (asset)
-   * Required: true
+   * Required: false
    * Id: d12a39dc-3912-4e8c-94aa-bd4d8d792f2c
    * Codename: picture
    */

@@ -1,15 +1,18 @@
-<h1>Welcome to Euro Walks Leeds</h1>
-
-<div *ngIf="walkItems" class="walks-container">
-  <div *ngFor="let walk of walkItems" class="walk">
-    <a href="{{walk.href}}" class="walk-link">
-      <div class="walk-info-items">
-        <div class="title-and-length">
-          <h3 class="title">{{walk.title}}</h3>
-          <div class="length-container"><p class="length"><span class="length-number">5</span><br>miles</p></div>
+<div class="home-container">
+  <h1>Welcome to Euro Walks Leeds</h1>
+  <p *ngIf="welcomeText" class="welcome-text">{{welcomeText}}</p>
+  <div *ngIf="walkItems" class="walks-container">
+    <div *ngFor="let walk of walkItems" class="walk">
+      <a href="{{walk.href}}" class="walk-link">
+        <div class="walk-info-items">
+          <div class="title-and-length">
+            <h3 class="title">{{walk.title}}</h3>
+            <div class="length-container"><p class="length"><span class="length-number">{{walk.miles}}</span><br>miles
+            </p></div>
+          </div>
+          <img class="walk-picture" src="{{walk.pictureUrl}}">
         </div>
-        <img class="walk-picture" src="{{walk.pictureUrl}}">
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
 </div>

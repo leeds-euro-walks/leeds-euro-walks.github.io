@@ -32,7 +32,7 @@ p {
   height: 60px;
   display: flex;
   align-items: center;
-  background-color: #00159b;
+  background-color: var(--eu-blue);
   color: white;
   font-weight: 600;
 }

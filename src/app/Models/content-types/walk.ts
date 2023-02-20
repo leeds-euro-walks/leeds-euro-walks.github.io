@@ -26,6 +26,14 @@ export type Walk = IContentItem<{
   number: Elements.NumberElement;
 
   /**
+   * Number (number)
+   * Required: true
+   * Id: 7c63cdf1-5154-499e-a486-db46d526afa9
+   * Codename: number
+   */
+  miles: Elements.NumberElement;
+
+  /**
    * Overview picture (asset)
    * Required: true
    * Id: ffc37f27-f012-4db0-a579-ef16785aed91
