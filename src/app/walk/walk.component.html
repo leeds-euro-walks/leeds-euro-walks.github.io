@@ -1,15 +1,46 @@
 <div class="container">
   <a href="">< Back</a>
   <div *ngIf="walk" class="walk-container">
-    <h1>{{walk.elements.title.value}}</h1>
-    <br>
-    <div>
-      <p>{{walk.elements.short_description.value}}</p></div>
-
-    <div *ngFor="let location of walk.elements.locations_of_walk.linkedItems;let indexOfElement=index;">
-      <h2>{{indexOfElement + 1}}. {{location.elements.title.value}}</h2>
-      <img *ngIf="location.elements.picture.value" src="{{location.elements.picture.value[0].url}}" width="75%">
-      <p [innerHtml]="location.elements.information_about_location.value"></p>
+    <div class="walk-title-container">
+      <h1 style="max-width: 90%;">{{walk.elements.title.value}}</h1>
+      <div>
+        <div class="length-container">
+          <p class="length">
+            <span class="length-number">{{walk.elements.miles.value}}</span>
+            miles
+        </p></div>
+        <div class="length-container">
+          <p class="length">
+            <span class="length-number">{{(walk.elements.miles.value! * 1.609).toFixed(1)}}</span>
+            km
+        </p></div>
+      </div>
     </div>
+    <div class="description-container">
+      <p>{{walk.elements.short_description.value}}</p>
+    </div>
+
+    <div class="location" *ngFor="let location of walk.elements.locations_of_walk.linkedItems;let indexOfElement=index;">
+      <div class="location-title">
+        <div class="location-number"><span>{{indexOfElement + 1}}</span></div>
+        <div class="location-title-text-container">
+          <span class="location-title-text">{{location.elements.title.value}}</span>
+        </div>
+      </div>
+      
+      <div class="location-info">
+        <img class="location-image" *ngIf="location.elements.picture.value[0]" src="{{location.elements.picture.value[0].url}}" width="75%">
+        <p class="location-text" [innerHtml]="location.elements.information_about_location.value"></p>
+      </div>
+    </div>
+    <div>
+      <a href="https://ko-fi.com/leedsforeurope" id="kofi-link" target="_blank">
+        <img src="https://storage.ko-fi.com/cdn/kofi_stroke_cup.svg">
+        <span>Enjoyed the walk? Consider buying us a coffee</span>
+      </a>
+    </div>
+  </div>
+  <div *ngIf="!walk" class="walk-container">
+    <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
   </div>
 </div>

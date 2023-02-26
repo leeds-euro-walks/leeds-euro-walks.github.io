@@ -10,3 +10,106 @@
   align-content: space-around;
   align-items: center;
 }
+
+.walk-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.length-container {
+  background-color: rgb(183, 226, 140);
+  height: 48px;
+  width: 48px;
+  border-radius: 24px;
+  border: 2px solid rgb(90, 122, 57);
+  display: flex;
+  text-align: center;
+
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.length-number {
+  font-size: large;
+  top: 3px;
+  position: relative;
+  font-weight: 1000;
+}
+
+.description-container {
+  margin-bottom: 0.83em;
+}
+
+.location {
+  background-color: rgb(203, 225, 245);
+  max-width: -webkit-fill-available;
+}
+
+.location-title {
+  color: white;
+  font-size: 1.5em;
+}
+
+.location-title-text-container {
+  width: 100%;
+  background-color: var(--eu-blue);
+  height: 100%;
+  font-weight: bold;
+}
+
+.location-number {
+  background-color: rgb(218, 81, 138);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-weight: bold;
+  left: -14px;
+  top: -8px;
+  position: relative;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.location-info {
+  padding: 0  0.83em 0.83em 0.83em;
+  overflow-wrap: anywhere;
+}
+
+.location-image {
+  float: left;
+  width: 40%;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
+
+@media all and (min-width: 550px) {
+  p {
+    font-size: larger;
+  }
+}
+
+@media all and (max-width: 550px) {
+  .location-image {
+    float: none;
+    width: 100%;
+    margin-top: 0.415em;
+    margin-bottom: 0%;
+  }
+}
+
+#kofi-link {
+  height: 30px;
+  display: flex;
+  padding: 0.83em;
+  background: wheat;
+  border-radius: 0 0 20px 20px;
+}
+
+#kofi-link > img {
+  margin-right: 10px;
+}

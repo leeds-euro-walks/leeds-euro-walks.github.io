@@ -33,13 +33,13 @@ export class WalkComponent implements OnInit {
   }
 }
 function modifyLocationsForUI(locations: Elements.LinkedItemsElement<WalkSingleLocation>): Elements.LinkedItemsElement<WalkSingleLocation> {
-  const reg: RegExp = new RegExp(/https:\/\/\S*/g);
+  const reg: RegExp = new RegExp(/https{0,1}:\/\/\S*/g);
   locations.linkedItems.sort(orderLocations);
   locations.linkedItems.map(loc => {
     let infoText = loc.elements.information_about_location.value;
     const matches = infoText.match(reg);
     matches?.forEach(link => {
-      infoText = infoText.replace(link, `<a href=${link}>this link</a>`)
+      infoText = infoText.replace(link, `<a target="_blank" href=${link}>${link}</a>`)
     });
     loc.elements.information_about_location.value = infoText;
   })

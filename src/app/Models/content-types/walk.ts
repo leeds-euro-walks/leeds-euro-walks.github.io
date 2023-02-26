@@ -26,10 +26,10 @@ export type Walk = IContentItem<{
   number: Elements.NumberElement;
 
   /**
-   * Number (number)
+   * Miles (number)
    * Required: true
    * Id: 7c63cdf1-5154-499e-a486-db46d526afa9
-   * Codename: number
+   * Codename: miles
    */
   miles: Elements.NumberElement;
 
