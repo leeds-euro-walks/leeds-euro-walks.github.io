@@ -21,6 +21,12 @@
   display: flex;
   width: 100%;
   justify-content: space-around;
+  margin-top: 10px;
+}
+
+.walk-number {
+  white-space: nowrap;
+  align-self: center;
 }
 
 .length-container {
@@ -34,6 +40,7 @@
   align-items: center;
   justify-content: center;
   color: black;
+  align-self: center;
 }
 
 .length-number {
@@ -54,7 +61,7 @@
 .title {
   color: black;
   text-decoration-line: underline;
-  max-width: 75%;
+  max-width: 60%;
 }
 
 img {
@@ -69,19 +76,21 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .walk {
-  flex-basis: 30%;
+  flex-basis: 47%;
 
   height: 30%;
-  margin: auto;
-  margin-top: 15px;
+  max-height: 380px;
+
+  margin: 15px 0 0;
 
   background-color: rgb(185, 218, 233);
   border-radius: 15px;
-
-  padding: 8px;
+  border: 1px solid grey;
+  overflow: hidden;
 }
 
 .walk:hover {
@@ -92,8 +101,9 @@ h1 {
 .walk-picture {
   width: 100%;
   margin: 10px 0 0 0;
-  max-height: 50%;
-  border-radius: 15px;
+  max-height: 320px;
+  border-radius: 0 0 15px 15px;
+  object-fit: cover;
 }
 
 @media all and (max-width: 550px) {

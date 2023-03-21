@@ -15,20 +15,33 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 70%;
+}
+
+.green {
+  background-color: rgb(183, 226, 140);
+  border: 2px solid rgb(90, 122, 57);
+}
+
+.yellow {
+  background-color: rgb(226, 215, 140);
+  border: 2px solid rgb(147, 127, 48);
 }
 
 .length-container {
-  background-color: rgb(183, 226, 140);
   height: 48px;
   width: 48px;
   border-radius: 24px;
-  border: 2px solid rgb(90, 122, 57);
   display: flex;
   text-align: center;
 
   align-items: center;
   justify-content: center;
   color: black;
+}
+
+.length-container:first-of-type {
+  margin-bottom: 5px;
 }
 
 .length-number {
@@ -40,6 +53,20 @@
 
 .description-container {
   margin-bottom: 0.83em;
+}
+
+.g-map-container {
+  width: 90%;
+  height: 390px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 15px;
+}
+
+.embedded-g-map {
+  width: 100%;
+  height: 450px;
 }
 
 .location {
@@ -80,11 +107,44 @@
   overflow-wrap: anywhere;
 }
 
-.location-image {
+.slideshow-container {
   float: left;
   width: 40%;
   margin-right: 20px;
   margin-bottom: 15px;
+  background-color: rgb(165, 204, 239);
+  position: relative;
+}
+
+.location-image {
+  width: 100%;
+}
+
+.prev, .next {
+  cursor: pointer;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  -webkit-user-select: none;
+  user-select: none;
+  position: absolute;
+  background-color: rgba(0,0,0,0.55);
+ }
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Position the "next button" to the right */
+.prev {
+  left: 0;
 }
 
 @media all and (min-width: 550px) {
@@ -94,7 +154,7 @@
 }
 
 @media all and (max-width: 550px) {
-  .location-image {
+  .slideshow-container {
     float: none;
     width: 100%;
     margin-top: 0.415em;

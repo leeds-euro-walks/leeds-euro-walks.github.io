@@ -4,6 +4,7 @@ import { Elements } from '@kontent-ai/delivery-sdk';
 import {Walk} from "../Models/content-types/walk";
 import { WalkSingleLocation } from '../Models/content-types/walk_single_location';
 import {fetchWalks} from "../services/WalkService";
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-walk',
@@ -13,6 +14,7 @@ import {fetchWalks} from "../services/WalkService";
 export class WalkComponent implements OnInit {
 
   walk: Walk | undefined;
+  slideIndexes: { [locationNumber: number]: number; } = {};
 
   constructor(private route: ActivatedRoute) { }
 
@@ -22,7 +24,7 @@ export class WalkComponent implements OnInit {
 
     const walks = await fetchWalks();
 
-    // Find the product that correspond with the id provided in route.
+    // Find the walk that correspond with the id provided in route.
     const walk = walks.find(walk => walk.elements.number.value === walkNumberFromRoute);
     if (!walk) {
       throw new Error;
@@ -30,8 +32,33 @@ export class WalkComponent implements OnInit {
     let locations = walk.elements.locations_of_walk;
     walk.elements.locations_of_walk = modifyLocationsForUI(locations);
     this.walk = walk;
+    walk.elements.locations_of_walk.linkedItems
+      .filter(loc => !!loc.elements.picture.value)
+      .forEach(loc => {
+        this.slideIndexes[loc.elements.order.value!] = 0
+      });
+  }
+
+  plusSlides(locationNumber: number|null, moveTo: number) {
+    const locationPictures = this.walk?.elements.locations_of_walk.linkedItems
+      .find(loc => loc.elements.order.value === locationNumber)?.elements.picture.value;
+    if (!locationNumber || !locationPictures || locationPictures.length === 1) {
+      return;
+    }
+    const maxIndex = locationPictures.length - 1;
+    const newIndex = this.slideIndexes[locationNumber] + moveTo;
+    const newIndexNormalised = newIndex > maxIndex ? 0 : newIndex < 0 ? maxIndex : newIndex;
+    const newImgSrc = locationPictures[newIndexNormalised].url;
+    const img = document.getElementById("location-image-" + locationNumber) as HTMLImageElement;
+    img.src = newImgSrc;
+    this.slideIndexes[locationNumber] = newIndexNormalised;
+  }
+
+  getGMapsUrl() {
+    return `https://www.google.com/maps/d/${this.walk!.elements.embed_link.value}`;
   }
 }
+
 function modifyLocationsForUI(locations: Elements.LinkedItemsElement<WalkSingleLocation>): Elements.LinkedItemsElement<WalkSingleLocation> {
   const reg: RegExp = new RegExp(/https{0,1}:\/\/\S*/g);
   locations.linkedItems.sort(orderLocations);

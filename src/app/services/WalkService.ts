@@ -5,6 +5,7 @@ import {HomepageWelcomeText} from "../Models/content-types/homepage_welcome_text
 export async function fetchWalks() {
   const deliveryClient = createDeliveryClient({
     projectId: 'fcbe81c7-c5c4-005d-4e52-9ae1bd03ab94',
+    defaultRenditionPreset: 'default'
   });
 
   // fetch items

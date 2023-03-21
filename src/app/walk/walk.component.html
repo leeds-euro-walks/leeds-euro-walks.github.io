@@ -4,12 +4,12 @@
     <div class="walk-title-container">
       <h1 style="max-width: 90%;">{{walk.elements.title.value}}</h1>
       <div>
-        <div class="length-container">
+        <div class="length-container green">
           <p class="length">
             <span class="length-number">{{walk.elements.miles.value}}</span>
             miles
         </p></div>
-        <div class="length-container">
+        <div class="length-container yellow">
           <p class="length">
             <span class="length-number">{{(walk.elements.miles.value! * 1.609).toFixed(1)}}</span>
             km
@@ -20,6 +20,15 @@
       <p>{{walk.elements.short_description.value}}</p>
     </div>
 
+    <div class="g-map-container" *ngIf="walk.elements.embed_link.value">
+      <iframe
+        class="embedded-g-map"
+        referrerpolicy="no-referrer-when-downgrade"
+        [src]="getGMapsUrl() | safe"
+        allowfullscreen>
+      </iframe>
+    </div>
+
     <div class="location" *ngFor="let location of walk.elements.locations_of_walk.linkedItems;let indexOfElement=index;">
       <div class="location-title">
         <div class="location-number"><span>{{indexOfElement + 1}}</span></div>
@@ -27,9 +36,15 @@
           <span class="location-title-text">{{location.elements.title.value}}</span>
         </div>
       </div>
-      
+
       <div class="location-info">
-        <img class="location-image" *ngIf="location.elements.picture.value[0]" src="{{location.elements.picture.value[0].url}}" width="75%">
+        <div class="slideshow-container" *ngIf="location.elements.picture.value[0]">
+          <img class="location-image"
+               id="location-image-{{location.elements.order.value}}"
+               src="{{location.elements.picture.value[0].url}}">
+          <a *ngIf="location.elements.picture.value.length > 1" class="prev" (click)="plusSlides(location.elements.order.value, -1)">&#10094;</a>
+          <a *ngIf="location.elements.picture.value.length > 1" class="next" (click)="plusSlides(location.elements.order.value,1)">&#10095;</a>
+        </div>
         <p class="location-text" [innerHtml]="location.elements.information_about_location.value"></p>
       </div>
     </div>

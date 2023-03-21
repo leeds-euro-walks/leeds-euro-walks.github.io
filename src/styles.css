@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root {
-  --eu-blue: #00159b
+  --eu-blue: #003399
 }
 
 body {
@@ -33,6 +33,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.footer-content-container {
+  width: 100%;
+  margin: 0 auto 0;
+  max-width: 960px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-content-container span {
+  margin: 5px;
+  text-align: center;
 }
 
 .footer a {
@@ -121,5 +136,13 @@ body {
   }
   50% {
     transform: scale(1.5);
+  }
+}
+
+@media print
+{
+  .no-print, .no-print *
+  {
+    display: none !important;
   }
 }

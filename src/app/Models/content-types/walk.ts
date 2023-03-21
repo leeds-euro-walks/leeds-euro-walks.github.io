@@ -56,4 +56,12 @@ export type Walk = IContentItem<{
    * Codename: title
    */
   title: Elements.TextElement;
+
+  /**
+   * embed link (text)
+   * Required: false
+   * Id: 630404a0-47b3-4c38-ba99-65a99dd1cb77
+   * Codename: embed_link
+   */
+  embed_link: Elements.TextElement;
 }>;
