@@ -1,3 +1,24 @@
+.button {
+  background-color: var(--eu-blue);
+  width: fit-content;
+  border-radius: 5px;
+  box-shadow: -3px 3px 2px rgb(148, 148, 148);
+  animation-duration: 0.5s;
+}
+
+.button:active {
+  transform: translate(-3px, 3px);
+  box-shadow: 0 0 2px rgb(148, 148, 148);
+  transition: 0.5s;
+}
+
+.button a {
+  color: white;
+  text-decoration: none;
+  padding: 3px;
+  font-size: large;
+}
+
 .container {
   margin: 0 5% 0 5%;
   min-width: 50%;
@@ -112,7 +133,6 @@
   width: 40%;
   margin-right: 20px;
   margin-bottom: 15px;
-  background-color: rgb(165, 204, 239);
   position: relative;
 }
 

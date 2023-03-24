@@ -91,6 +91,13 @@ h1 {
   border-radius: 15px;
   border: 1px solid grey;
   overflow: hidden;
+  box-shadow: -5px 5px 3px rgb(148, 148, 148);
+}
+
+.walk:active {
+  transform: translate(-5px, 5px);
+  box-shadow: -0px 0px 3px rgb(148, 148, 148);
+  transition: 0.1s;
 }
 
 .walk:hover {
