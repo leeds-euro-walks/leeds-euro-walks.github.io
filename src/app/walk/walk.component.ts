@@ -31,12 +31,12 @@ export class WalkComponent implements OnInit {
     }
     let locations = walk.elements.locations_of_walk;
     walk.elements.locations_of_walk = modifyLocationsForUI(locations);
-    this.walk = walk;
     walk.elements.locations_of_walk.linkedItems
       .filter(loc => !!loc.elements.picture.value)
       .forEach(loc => {
         this.slideIndexes[loc.elements.order.value!] = 0
       });
+    this.walk = walk;
   }
 
   plusSlides(locationNumber: number|null, moveTo: number) {

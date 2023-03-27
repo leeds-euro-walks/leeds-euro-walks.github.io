@@ -30,6 +30,7 @@
         allowfullscreen>
       </iframe>
     </div>
+    <div *ngIf="walk.elements.embed_link.value" class="view-full-map button"><a target="_blank" [href]="getGMapsUrl()">View fullscreen map</a></div>
 
     <div class="location" *ngFor="let location of walk.elements.locations_of_walk.linkedItems;let indexOfElement=index;">
       <div class="location-title">
@@ -50,7 +51,7 @@
         <p class="location-text" [innerHtml]="location.elements.information_about_location.value"></p>
       </div>
     </div>
-    <div>
+    <div class="kofi-container">
       <a href="https://ko-fi.com/leedsforeurope" id="kofi-link" target="_blank">
         <img src="https://storage.ko-fi.com/cdn/kofi_stroke_cup.svg">
         <span>Enjoyed the walk? Consider buying us a coffee</span>

@@ -20,8 +20,10 @@
 }
 
 .container {
-  margin: 0 5% 0 5%;
+  padding: 15px 5% 0 5%;
   min-width: 50%;
+  background-color: #ffdcdc;
+  border-radius: 15px;
 }
 
 .walk-container {
@@ -90,9 +92,15 @@
   height: 450px;
 }
 
+.view-full-map {
+  margin-bottom: 15px;
+}
+
 .location {
   background-color: rgb(203, 225, 245);
   max-width: -webkit-fill-available;
+  border-radius: 0 25px 10px 10px;
+  margin-bottom: 15px;
 }
 
 .location-title {
@@ -105,6 +113,7 @@
   background-color: var(--eu-blue);
   height: 100%;
   font-weight: bold;
+  border-radius: 0 25px 0 0;
 }
 
 .location-number {
@@ -124,7 +133,7 @@
 }
 
 .location-info {
-  padding: 0  0.83em 0.83em 0.83em;
+  padding: 0  0.83em 0 0.83em;
   overflow-wrap: anywhere;
 }
 
@@ -180,6 +189,13 @@
     margin-top: 0.415em;
     margin-bottom: 0%;
   }
+  h1 {
+    font-size: 5vw;
+  }
+}
+
+.kofi-container {
+  margin-bottom: 15px;
 }
 
 #kofi-link {
@@ -187,7 +203,7 @@
   display: flex;
   padding: 0.83em;
   background: wheat;
-  border-radius: 0 0 20px 20px;
+  border-radius: 20px;
 }
 
 #kofi-link > img {
