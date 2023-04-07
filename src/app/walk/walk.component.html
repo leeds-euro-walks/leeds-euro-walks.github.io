@@ -41,8 +41,8 @@
       </div>
 
       <div class="location-info">
-        <div class="slideshow-container" *ngIf="location.elements.picture.value[0]">
-          <img class="location-image no-print"
+        <div class="slideshow-container no-print" *ngIf="location.elements.picture.value[0]">
+          <img class="location-image"
                id="location-image-{{location.elements.order.value}}"
                src="{{location.elements.picture.value[0].url}}">
           <a *ngIf="location.elements.picture.value.length > 1" class="prev" (click)="plusSlides(location.elements.order.value, -1)">&#10094;</a>
