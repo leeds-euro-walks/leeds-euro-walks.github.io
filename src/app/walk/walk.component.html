@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="button">
-    <a href="">< Back</a>
+  <div *ngIf="walk" class="button">
+    <a (click)="printThisPage()" class="no-print">Print walk 🡭</a>
   </div>
   <div *ngIf="walk" class="walk-container">
     <div class="walk-title-container">
@@ -26,15 +26,15 @@
       <iframe
         class="embedded-g-map"
         referrerpolicy="no-referrer-when-downgrade"
-        [src]="getGMapsUrl() | safe"
+        [src]="getGMapsEmbedUrl() | safe"
         allowfullscreen>
       </iframe>
     </div>
-    <div *ngIf="walk.elements.embed_link.value" class="view-full-map button"><a target="_blank" [href]="getGMapsUrl()">View fullscreen map</a></div>
+    <div *ngIf="walk.elements.embed_link.value" class="view-full-map button"><a target="_blank" [href]="getGMapsFullscreenUrl()">View fullscreen map</a></div>
 
     <div class="location" *ngFor="let location of walk.elements.locations_of_walk.linkedItems;let indexOfElement=index;">
       <div class="location-title">
-        <div class="location-number"><span>{{indexOfElement + 1}}</span></div>
+        <div class="location-number"><span>{{alphabet[indexOfElement]}}</span></div>
         <div class="location-title-text-container">
           <span class="location-title-text">{{location.elements.title.value}}</span>
         </div>
@@ -42,7 +42,7 @@
 
       <div class="location-info">
         <div class="slideshow-container" *ngIf="location.elements.picture.value[0]">
-          <img class="location-image"
+          <img class="location-image no-print"
                id="location-image-{{location.elements.order.value}}"
                src="{{location.elements.picture.value[0].url}}">
           <a *ngIf="location.elements.picture.value.length > 1" class="prev" (click)="plusSlides(location.elements.order.value, -1)">&#10094;</a>
@@ -51,14 +51,14 @@
         <p class="location-text" [innerHtml]="location.elements.information_about_location.value"></p>
       </div>
     </div>
-    <div class="kofi-container">
+    <div class="kofi-container no-print">
       <a href="https://ko-fi.com/leedsforeurope" id="kofi-link" target="_blank">
         <img src="https://storage.ko-fi.com/cdn/kofi_stroke_cup.svg">
         <span>Enjoyed the walk? Consider buying us a coffee</span>
       </a>
     </div>
   </div>
-  <div *ngIf="!walk" class="walk-container">
+  <div *ngIf="!walk" class="walk-container no-print">
     <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
   </div>
 </div>

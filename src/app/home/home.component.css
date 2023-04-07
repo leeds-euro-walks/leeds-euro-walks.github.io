@@ -91,7 +91,7 @@ h1 {
   border-radius: 15px;
   border: 1px solid grey;
   overflow: hidden;
-  box-shadow: -5px 5px 3px rgb(148, 148, 148);
+  box-shadow: 0px 0px 4px 1px rgb(148, 148, 148);
 }
 
 .walk:active {
@@ -100,7 +100,7 @@ h1 {
   transition: 0.1s;
 }
 
-.walk:hover {
+.walk:hover, .other-website:hover {
   background-color: rgb(143, 202, 229);
   transition: 0.5s;
 }
@@ -111,6 +111,31 @@ h1 {
   max-height: 320px;
   border-radius: 0 0 15px 15px;
   object-fit: cover;
+}
+
+.other-websites-container{
+  margin-top: 25px;
+  width: 100%;
+}
+
+.other-website {
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+  background-color: rgb(185, 218, 233);
+  border-radius: 15px;
+  box-shadow: 0px 0px 4px 1px rgb(148, 148, 148);
+  border: 1px solid grey;
+}
+
+.other-website a {
+  color: black !important;
+  font-weight: bold;
+  text-decoration: none !important;
+  width: 100%;
+  display: block;
+  padding: 10px;
+  height: 100%;
 }
 
 @media all and (max-width: 550px) {

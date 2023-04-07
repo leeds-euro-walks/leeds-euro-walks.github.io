@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {fetchHomepageText, fetchWalks} from "../services/WalkService";
+import {fetchHomepageText, fetchOtherEurowalks, fetchWalks} from "../services/WalkService";
 
 @Component({
   selector: 'app-home',
@@ -9,9 +9,17 @@ import {fetchHomepageText, fetchWalks} from "../services/WalkService";
 export class HomeComponent implements OnInit {
   walkItems : { title: string; pictureUrl: string; href: string; miles: number; number: number;}[] | undefined;
   welcomeText: string | undefined;
+  otherEurowalkWebsites: {title: string, url: string}[] | undefined;
+
   async ngOnInit() {
     const welcomeText = await fetchHomepageText();
     this.welcomeText = welcomeText[0].elements.text.value;
+
+    const otherEurowalkWebsites = await fetchOtherEurowalks();
+    this.otherEurowalkWebsites = otherEurowalkWebsites.map(eu => {
+      return {title: eu.elements.title.value, url: eu.elements.website_url.value}
+    });
+
     const walks = await fetchWalks();
     let walkItems = walks.map(walk => {return {
       number: walk.elements.number.value!,

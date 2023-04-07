@@ -1,6 +1,7 @@
 <div class="home-container">
   <h1>Welcome to Leeds Eurowalks</h1>
   <p *ngIf="welcomeText" class="welcome-text">{{welcomeText}}</p>
+  <div style="height: 1px; background-color: black; width: 100%;"></div>
   <div *ngIf="walkItems" class="walks-container">
     <div *ngFor="let walk of walkItems" class="walk">
       <a href="{{walk.href}}" class="walk-link">
@@ -18,5 +19,12 @@
   </div>
   <div *ngIf="!walkItems" class="walks-container">
     <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+  <div *ngIf="walkItems && otherEurowalkWebsites" class="other-websites-container">
+    <div style="height: 1px; background-color: black; width: 100%;"></div>
+    <h2 style="text-align: center;">Other Eurowalks websites we support</h2>
+    <div *ngFor="let otherWalk of otherEurowalkWebsites" class="other-website">
+      <a href="{{otherWalk.url}}">{{otherWalk.title}} 🡭</a>
+    </div>
   </div>
 </div>

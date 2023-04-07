@@ -22,8 +22,8 @@
 .container {
   padding: 15px 5% 0 5%;
   min-width: 50%;
-  background-color: #ffdcdc;
-  border-radius: 15px;
+  background-color: #fcffdb;
+  border-radius: 0 0 15px 15px;
 }
 
 .walk-container {
@@ -208,4 +208,8 @@
 
 #kofi-link > img {
   margin-right: 10px;
+}
+
+#kofi-link span {
+  align-self: center;
 }

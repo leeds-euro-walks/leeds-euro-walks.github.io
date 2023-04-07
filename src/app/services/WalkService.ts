@@ -1,6 +1,7 @@
 import {createDeliveryClient} from "@kontent-ai/delivery-sdk";
 import {Walk} from "../Models/content-types/walk";
 import {HomepageWelcomeText} from "../Models/content-types/homepage_welcome_text";
+import { OtherEurowalkWebsite } from "../Models/content-types/other_eurowalk_website";
 
 export async function fetchWalks() {
   const deliveryClient = createDeliveryClient({
@@ -22,6 +23,17 @@ export async function fetchHomepageText() {
   // fetch items
   const response = await deliveryClient.items<HomepageWelcomeText>()
     .type('homepage_welcome_text')
+    .toPromise();
+  return response.data.items;
+}
+export async function fetchOtherEurowalks() {
+  const deliveryClient = createDeliveryClient({
+    projectId: 'fcbe81c7-c5c4-005d-4e52-9ae1bd03ab94',
+  });
+
+  // fetch items
+  const response = await deliveryClient.items<OtherEurowalkWebsite>()
+    .type('other_eurowalk_website')
     .toPromise();
   return response.data.items;
 }

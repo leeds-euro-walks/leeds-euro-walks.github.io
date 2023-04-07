@@ -15,6 +15,7 @@ export class WalkComponent implements OnInit {
 
   walk: Walk | undefined;
   slideIndexes: { [locationNumber: number]: number; } = {};
+  alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V"];
 
   constructor(private route: ActivatedRoute) { }
 
@@ -29,20 +30,21 @@ export class WalkComponent implements OnInit {
     if (!walk) {
       throw new Error;
     }
-    let locations = walk.elements.locations_of_walk;
-    walk.elements.locations_of_walk = modifyLocationsForUI(locations);
-    walk.elements.locations_of_walk.linkedItems
+    let locations = walk.elements.locations_of_walk.linkedItems;
+    locations = modifyLocationsForUI(locations);
+    locations
       .filter(loc => !!loc.elements.picture.value)
       .forEach(loc => {
         this.slideIndexes[loc.elements.order.value!] = 0
       });
+    walk.elements.locations_of_walk.linkedItems = locations;
     this.walk = walk;
   }
 
   plusSlides(locationNumber: number|null, moveTo: number) {
     const locationPictures = this.walk?.elements.locations_of_walk.linkedItems
       .find(loc => loc.elements.order.value === locationNumber)?.elements.picture.value;
-    if (!locationNumber || !locationPictures || locationPictures.length === 1) {
+    if (!locationNumber || !locationPictures || locationPictures.length < 2) {
       return;
     }
     const maxIndex = locationPictures.length - 1;
@@ -54,15 +56,23 @@ export class WalkComponent implements OnInit {
     this.slideIndexes[locationNumber] = newIndexNormalised;
   }
 
-  getGMapsUrl() {
+  getGMapsEmbedUrl() {
     return `https://www.google.com/maps/d/${this.walk!.elements.embed_link.value}`;
+  }
+
+  getGMapsFullscreenUrl() {
+    return `https://www.google.com/maps/d/u/0/${this.walk!.elements.embed_link.value.replace("embed", "viewer")}`;
+  }
+
+  printThisPage() {
+    window.print();
   }
 }
 
-function modifyLocationsForUI(locations: Elements.LinkedItemsElement<WalkSingleLocation>): Elements.LinkedItemsElement<WalkSingleLocation> {
+function modifyLocationsForUI(locations: WalkSingleLocation[]): WalkSingleLocation[] {
   const reg: RegExp = new RegExp(/https{0,1}:\/\/\S*/g);
-  locations.linkedItems.sort(orderLocations);
-  locations.linkedItems.map(loc => {
+  locations.sort(orderLocations);
+  locations.map(loc => {
     let infoText = loc.elements.information_about_location.value;
     const matches = infoText.match(reg);
     matches?.forEach(link => {
