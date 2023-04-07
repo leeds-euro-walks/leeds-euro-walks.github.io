@@ -137,6 +137,36 @@
   overflow-wrap: anywhere;
 }
 
+.location-text {
+}
+
+.flag-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.location-eu-flags {
+  float: right;
+  position: relative;
+  margin-left: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.location-eu-flag {
+  width: 35px;
+  height: 35px;
+  margin: 0 0 5px 0;
+  border-radius: 5px;
+}
+
+.location-eu-country-name {
+  font-size: x-small;
+}
+
 .slideshow-container {
   float: left;
   width: 40%;

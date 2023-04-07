@@ -54,4 +54,12 @@ export type WalkSingleLocation = IContentItem<{
    * Codename: title
    */
   title: Elements.TextElement;
+
+  /**
+   * connections (multiple_choice)
+   * Required: false
+   * Id: 630404a0-47b3-4c38-ba99-65a99dd1cb77
+   * Codename: connections
+   */
+  connections: Elements.MultipleChoiceElement;
 }>;

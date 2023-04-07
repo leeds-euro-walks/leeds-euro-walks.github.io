@@ -48,6 +48,12 @@
           <a *ngIf="location.elements.picture.value.length > 1" class="prev" (click)="plusSlides(location.elements.order.value, -1)">&#10094;</a>
           <a *ngIf="location.elements.picture.value.length > 1" class="next" (click)="plusSlides(location.elements.order.value,1)">&#10095;</a>
         </div>
+        <div *ngIf="location.elements.connections && location.elements.connections.value.length > 0" class="location-eu-flags">
+          <div *ngFor="let connection of location.elements.connections.value" class="flag-text-container">
+            <img class="location-eu-flag" src="../../assets/eu_countries/{{connection.codename}}.png">
+            <span class="location-eu-country-name">{{connection.name}}</span>
+          </div>
+        </div>
         <p class="location-text" [innerHtml]="location.elements.information_about_location.value"></p>
       </div>
     </div>
