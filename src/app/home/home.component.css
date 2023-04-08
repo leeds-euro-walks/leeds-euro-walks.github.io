@@ -4,8 +4,15 @@
   align-items: center;
 }
 
+.overall-map {
+  width: 100%;
+  align-self: center;
+  max-width: 500px;
+  border-radius: 5%;
+  margin: 0;
+}
+
 .welcome-text {
-  margin-bottom: 40px;
 }
 
 .walk-info-items {
