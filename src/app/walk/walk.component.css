@@ -225,7 +225,7 @@
 }
 
 .kofi-container {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 #kofi-link {
@@ -234,6 +234,9 @@
   padding: 0.83em;
   background: wheat;
   border-radius: 20px;
+  box-shadow: 0px 0px 4px 1px rgb(148, 148, 148);
+  border: 1px solid grey;
+  text-decoration: none;
 }
 
 #kofi-link > img {
@@ -242,4 +245,30 @@
 
 #kofi-link span {
   align-self: center;
+}
+
+.feedback-container {
+  margin-top: 20px;
+  border-radius: 10px;
+  background: wheat;
+  max-width: 400px;
+  box-shadow: 0px 0px 4px 1px rgb(148, 148, 148);
+  border: 1px solid grey;
+  margin-bottom: 15px;
+}
+
+.feedback-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-decoration: none !important;
+}
+
+.email-image {
+  width: 50px;
+  margin: 0 0 0 10px;
+}
+
+.feedback-text {
+  text-align: center;
 }

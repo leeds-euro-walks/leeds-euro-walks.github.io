@@ -26,7 +26,14 @@
     <div style="height: 1px; background-color: black; width: 100%;"></div>
     <h2 style="text-align: center;">Other Eurowalks websites we support</h2>
     <div *ngFor="let otherWalk of otherEurowalkWebsites" class="other-website">
-      <a href="{{otherWalk.url}}">{{otherWalk.title}} 🡭</a>
+      <a href="{{otherWalk.url}}" target="_blank">{{otherWalk.title}} 🡭</a>
     </div>
+  </div>
+  <div style="height: 1px; background-color: black; width: 100%; margin-top: 20px;"></div>
+  <div class="feedback-container">
+    <a class="feedback-link" href="mailto:info@leedsforeurope.org">
+      <img src="../../assets/email.png" class="email-image">
+      <span class="feedback-text">If you have any feedback, or would like to know more, please get in contact here</span>
+    </a>
   </div>
 </div>

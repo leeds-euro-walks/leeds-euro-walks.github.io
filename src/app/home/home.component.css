@@ -145,6 +145,33 @@ h1 {
   height: 100%;
 }
 
+.feedback-container {
+  margin-top: 20px;
+  border-radius: 10px;
+  background: wheat;
+  max-width: 400px;
+  padding: 5px;
+  box-shadow: 0px 0px 4px 1px rgb(148, 148, 148);
+  border: 1px solid grey;
+}
+
+.feedback-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-decoration: none !important;
+}
+
+.email-image {
+  width: 50px;
+  margin: 0 0 0 10px;
+}
+
+.feedback-text {
+  text-align: center;
+  color: black;
+}
+
 @media all and (max-width: 550px) {
   .walks-container {
     /* On small screens, we are no longer using row direction but column */
