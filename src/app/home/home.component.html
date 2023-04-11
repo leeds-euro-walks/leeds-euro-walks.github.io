@@ -24,7 +24,7 @@
   </div>
   <div *ngIf="walkItems && otherEurowalkWebsites" class="other-websites-container">
     <div style="height: 1px; background-color: black; width: 100%;"></div>
-    <h2 style="text-align: center;">Other Eurowalks websites we support</h2>
+    <h2 style="text-align: center;">Other Eurowalks websites</h2>
     <div *ngFor="let otherWalk of otherEurowalkWebsites" class="other-website">
       <a href="{{otherWalk.url}}" target="_blank">{{otherWalk.title}} 🡭</a>
     </div>
