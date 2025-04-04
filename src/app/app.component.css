@@ -42,10 +42,11 @@ p {
   margin: 0 8px;
 }
 
-.toolbar #twitter-logo {
+.toolbar #social-logo {
   height: 60px;
-  margin: 0 8px;
   display: block;
+  padding-top: 14px;
+  padding-left: 8px;
 }
 
 .toolbar #website-logo {
@@ -54,7 +55,7 @@ p {
   display: block;
 }
 
-.toolbar #twitter-logo:hover,
+.toolbar #social-logo:hover,
 .toolbar #website-logo:hover {
   opacity: 0.8;
 }
